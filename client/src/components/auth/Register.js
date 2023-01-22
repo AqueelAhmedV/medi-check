@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom"
 import axios from 'axios'
 
 const Register = () => {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -18,6 +19,7 @@ const Register = () => {
     axios.
     post('http://localhost:5000', 
     {
+      name,
       email,
       password,
       dateOfBirth: dob,
@@ -33,6 +35,20 @@ const Register = () => {
   return (
     <div className="register-page">
       <Form onSubmit={handleSubmit}>
+        <Row>
+          <Col xs={12} md={6}>
+            <Form.Group controlId="formBasicName">
+              <Form.Label>Name</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter full name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
+            </Form.Group>
+          </Col>
+        </Row>
+
         <Row>
           <Col xs={12} md={6}>
             <Form.Group controlId="formBasicEmail">
