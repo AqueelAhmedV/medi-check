@@ -1,13 +1,5 @@
 import React, { useState } from "react";
-import {
-  Form,
-  Button,
-  Col,
-  Row,
-  FormGroup,
-  Label,
-  Input,
-} from "react-bootstrap";
+import { Form, Button, Col, Row } from "react-bootstrap";
 import "./Register.css";
 
 const Register = () => {
@@ -67,16 +59,16 @@ const Register = () => {
         </Row>
         <Row>
           <Col xs={12} md={6}>
-            <FormGroup>
-              <Label for="dob">Date of Birth</Label>
-              <Input
+            <Form.Group>
+              <Form.Label for="dob">Date of Birth</Form.Label>
+              <Form.Control
                 type="date"
                 name="dob"
                 id="dob"
                 value={dob}
                 onChange={(e) => setDob(e.target.value)}
               />
-            </FormGroup>
+            </Form.Group>
           </Col>
         </Row>
         <Row>

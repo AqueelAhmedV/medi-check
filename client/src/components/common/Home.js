@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import { Container, Row, Col } from "react-bootstrap";
-import Nurse from "./Nurse";
-import Patient from "./Patient";
-import { useHistory } from "react-router-dom";
+import Nurse from "../mode/Nurse";
+import Patient from "../mode/Patient";
+import { useNavigate } from "react-router-dom";
 import './Home.css';
 
 const Home = () => {
   const [isPatient, setIsPatient] = useState(false);
-  let history = useHistory();
+  let history = useNavigate();
 
   useEffect(() => {
     const token = localStorage.getItem('token');
