@@ -6,7 +6,7 @@ import './Landing.css';
 const Landing = () => {
   return (
     <div className="landing">
-      <h1 className="text-center">Welcome to our App</h1>
+      <h1 className="text-center">MediCheck</h1>
       <div className="btn-container">
         <Link to="/login">
           <Button variant="primary" className="mr-3">

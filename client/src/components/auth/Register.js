@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Form, Button, Col, Row } from "react-bootstrap";
 import "./Register.css";
+import { useNavigate } from "react-router-dom"
+import axios from 'axios'
 
 const Register = () => {
   const [email, setEmail] = useState("");
@@ -8,13 +10,24 @@ const Register = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [dob, setDob] = useState("");
   const [isPatient, setIsPatient] = useState(true);
+  const history = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     // You can add your own validation and api call here.
-    console.log(
-      `email: ${email}, password: ${password}, confirmPassword: ${confirmPassword}, dob: ${dob}, isPatient: ${isPatient}`
-    );
+    axios.
+    post('http://localhost:5000', 
+    {
+      email,
+      password,
+      dateOfBirth: dob,
+      isPatient
+    })
+    .then(res => {
+      history.push('/login')
+      console.log(res.data)
+    })
+    .catch(err => console.log(err))
   };
 
   return (
